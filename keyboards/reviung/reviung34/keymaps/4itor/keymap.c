@@ -4,7 +4,8 @@
 
 //*** Globals
 
-int Current_DL;
+int Current_DL         = 0;     // Current Default Layer
+bool is_alt_tab_active = false; // Is Alt-Tab engaded?
 
 //*** Layer definition
 
@@ -25,7 +26,9 @@ enum custom_keycodes {
   K_RST_Q,                // For QK_BOOT combo
   K_RST_P,                // For QK_BOOT combo
   K_DOTSL,                // ../
-  K_CLNEQ                 // :=
+  K_CLNEQ,                // :=
+  K_ALTAB,                // Alt+Tab onehanded on Mouse Helper layer
+  K_ALTBP                 // Previous Window (Shift+Tab)
 };
 
 // Alternate void key definition
@@ -130,15 +133,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_MOUS] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
-  //|        |  Home  |   End  |  Enter | (Lock) |  |        |        |        |        |        |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+  //| (Lock) |        | AltTab-Switcher |  Enter |  |        |        |        |        |        |
+  //|--------|--------|-----------------|--------|  |--------|--------|--------|--------|--------|
   //|   Gui  |   Alt  |  Ctrl  |  Shift | BackSp |  | Mous_L | Mous_D | Mous_U | Mous_R |        |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //|  Undo  |   Cut  |  Copy  |  Paste |   Del  |  | Scrl_L | Scrl_D | Scrl_U | Scrl_R |        |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //                           |   Tab  | (Held) |  | Mouse1 | Mouse2 |
   //                           `-----------------'  `-----------------'
-       _void_, KC_HOME,  KC_END,  KC_ENT, K_LLOCK,     _void_,  _void_,  _void_,  _void_,  _void_,
+      K_LLOCK,  _void_, K_ALTBP, K_ALTAB,  KC_ENT,     _void_,  _void_,  _void_,  _void_,  _void_,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_BSPC,    KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  _void_,
        K_Undo,   K_Cut,  K_Copy, K_Paste,  KC_DEL,    KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _void_,
                                   _void_,  _void_,    KC_BTN1, KC_BTN2
@@ -230,21 +233,52 @@ combo_t key_combos[COMBO_LENGTH] = {
     [COMBO_RESET] = COMBO(combo_adj_qp, QK_BOOT)
 };
 
-// Functions
+//* Functions
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // LayerLock
     if (!process_layer_lock(keycode, record, K_LLOCK)) { return false; }
     // CapsWord
     if (!process_caps_word(keycode, record)) { return false; }
-    // Your macros ...
+    // Alt-Tab disengage
+    if (keycode != K_ALTAB && keycode != K_ALTBP) {
+        if(is_alt_tab_active) {
+            is_alt_tab_active = false;
+            unregister_code(KC_LALT);
+        }
+    }
+    // Macros
     switch(keycode) {
+        case K_ALTAB:
+            if (record->event.pressed) {
+                if (!is_alt_tab_active) {
+                    is_alt_tab_active = true;
+                    register_code(KC_LALT);
+                }
+                register_code(KC_TAB);
+            } else {
+                unregister_code(KC_TAB);
+            }
+            break;
+        case K_ALTBP:
+            if (record->event.pressed) {
+                if (!is_alt_tab_active) {
+                    is_alt_tab_active = true;
+                    register_code(KC_LALT);
+                }
+                register_code(KC_LSFT);
+                register_code(KC_TAB);
+            } else {
+                unregister_code(KC_TAB);
+                unregister_code(KC_LSFT);
+            }
+            break;
         case K_CLNEQ:
             if (record->event.pressed) {
-                // SEND_STRING(":=");
-                register_code(KC_X);
+                SEND_STRING(":=");
+                // register_code(KC_X);
             } else {
-                unregister_code(KC_X);
+                // unregister_code(KC_X);
             }
             break;
         case K_DOTSL:
