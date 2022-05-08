@@ -4,31 +4,31 @@
 
 //*** Globals
 
-int Current_DL         = 0;     // Current Default Layer
+int  Current_DL        = 0;     // Current Default Layer
 bool is_alt_tab_active = false; // Is Alt-Tab engaded?
 
 //*** Layer definition
 
 enum custom_layers {
-  _QRTY,   // Base Querty Layer
-  _NUMB,   // Number and Functions
-  _SYMB,   // Symbols
-  _NAVI,   // Navigation
-  _MOUS,   // Mouse Helper / Mouse Simulation
-  _ADJT,   // Adjustments
-  _GAME,   // Game Mode
-  _XTRA    // Game Extra layer
+    _QRTY, // Base Querty Layer
+    _NUMB, // Number and Functions
+    _SYMB, // Symbols
+    _NAVI, // Navigation
+    _MOUS, // Mouse Helper / Mouse Simulation
+    _ADJT, // Adjustments
+    _GAME, // Game Mode
+    _XTRA  // Game Extra layer
 };
 
 //-- Extra Keycodes
 enum custom_keycodes {
-  K_LLOCK = SAFE_RANGE,   // Layer Lock
-  K_RST_Q,                // For QK_BOOT combo
-  K_RST_P,                // For QK_BOOT combo
-  K_DOTSL,                // ../
-  K_CLNEQ,                // :=
-  K_ALTAB,                // Alt+Tab onehanded on Mouse Helper layer
-  K_ALTBP                 // Previous Window (Shift+Tab)
+    K_LLOCK = SAFE_RANGE, // Layer Lock
+    K_RST_Q,              // For QK_BOOT combo
+    K_RST_P,              // For QK_BOOT combo
+    K_DOTSL,              // ../
+    K_CLNEQ,              // :=
+    K_ALTAB,              // Alt+Tab onehanded on Mouse Helper layer
+    K_ALTBP               // Previous Window (Shift+Tab)
 };
 
 // Alternate void key definition
@@ -68,10 +68,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QRTY] = LAYOUT_reviung34(
   // Combos:
   //  U+I -> Esc
-  //  E+R -> CapsWord
   //  R+T -> (     Y+U -> )
   //  F+G -> {     H+J -> }
   //  V+B -> [     N+M -> ]
+  //  V+M -> CapsWord
   //,--------------------------------------------.  ,--------------------------------------------.
   //|    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |
   //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
@@ -86,6 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
              LT(_NUMB, KC_TAB), LT(_MOUS, KC_SPC),  LT(_NAVI, KC_ENT), LT(_SYMB, KC_BSPC)
   ),
+
   [_NUMB] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
   //|   F9   |  F10   |   F11  |   F12  |        |  |    +   |    7   |    8   |    9   |    *   |
@@ -101,6 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F1,   KC_F2,   KC_F3,   KC_F4,  _void_,       KC_0,    KC_1,    KC_2,    KC_3, KC_PEQL,
                                MO(_ADJT),  KC_SPC,     KC_ENT, MO(_ADJT)
   ),
+
   [_SYMB] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
   //|    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |
@@ -116,6 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _void_, K_DOTSL, KC_TILD,  KC_EQL, KC_BSLS,    KC_SLSH,  _void_,   KC_LT,   KC_GT, KC_QUES,
                                MO(_ADJT),  KC_SPC,     _void_, MO(_ADJT)
   ),
+
   [_NAVI] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
   //|        |        |        |        |        |  | (Lock) |   Esc  |        |Hyper(O)|Hyper(P)|
@@ -131,6 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _void_,  _void_,  _void_,  _void_,  _void_,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  _void_,
                              _void_, HYPR(KC_SPC),     _void_,  _void_
   ),
+
   [_MOUS] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
   //| (Lock) |        | AltTab-Switcher |  Enter |  | Accel0 | Accel1 | Accel2 |        |        |
@@ -146,6 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        K_Undo,   K_Cut,  K_Copy, K_Paste,  KC_DEL,    KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _void_,
                                   _void_,  _void_,    KC_BTN1, KC_BTN2
   ),
+
   [_ADJT] = LAYOUT_reviung34(
   // Combos:
   //  Q+P -> Keyboard Reset
@@ -163,6 +168,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _void_,  _void_,  _void_,  _void_,  _void_,     _void_, KC_BRID, KC_BRIU,  _void_,DF(_GAME),
                                   _void_,  _void_,     _void_,  _void_
   ),
+
   [_GAME] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
   //|    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |
@@ -178,6 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
                                   KC_TAB,  KC_SPC,  MO(_XTRA), KC_BSPC
   ),
+
   [_XTRA] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
   //|    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |
@@ -195,30 +202,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-//* Combos!
+//*** Combos!
 
 enum combo_events {
-  COMBO_ESC,       //  U+I -> Esc
-  COMBO_CAPSW,     //  V+M -> CapsWord
-  COMBO_LPRN,      //  R+T -> (
-  COMBO_RPRN,      //  Y+U -> )
-  COMBO_LCBR,      //  F+G -> {
-  COMBO_RCBR,      //  H+J -> }
-  COMBO_LBRC,      //  V+B -> [
-  COMBO_RBRC,      //  N+M -> ]
-  COMBO_RESET,     //  (AdjustLayer) Q+P -> Keyboard Reset
-  COMBO_LENGTH
+    COMBO_ESC,   //  U+I -> Esc
+    COMBO_CAPSW, //  V+M -> CapsWord
+    COMBO_LPRN,  //  R+T -> (
+    COMBO_RPRN,  //  Y+U -> )
+    COMBO_LCBR,  //  F+G -> {
+    COMBO_RCBR,  //  H+J -> }
+    COMBO_LBRC,  //  V+B -> [
+    COMBO_RBRC,  //  N+M -> ]
+    COMBO_RESET, //  (AdjustLayer) Q+P -> Keyboard Reset
+    COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM combo_ui[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_vm[] = {KC_V, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_rt[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_yu[] = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_fg[] = {SFT_F, KC_G, COMBO_END};
-const uint16_t PROGMEM combo_hj[] = {KC_H, SFT_J, COMBO_END};
-const uint16_t PROGMEM combo_vb[] = {KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM combo_nm[] = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM combo_ui[]     = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_vm[]     = {KC_V, KC_M, COMBO_END};
+const uint16_t PROGMEM combo_rt[]     = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_yu[]     = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_fg[]     = {SFT_F, KC_G, COMBO_END};
+const uint16_t PROGMEM combo_hj[]     = {KC_H, SFT_J, COMBO_END};
+const uint16_t PROGMEM combo_vb[]     = {KC_V, KC_B, COMBO_END};
+const uint16_t PROGMEM combo_nm[]     = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM combo_adj_qp[] = {K_RST_Q, K_RST_P, COMBO_END};
 
 combo_t key_combos[COMBO_LENGTH] = {
@@ -233,22 +240,26 @@ combo_t key_combos[COMBO_LENGTH] = {
     [COMBO_RESET] = COMBO(combo_adj_qp, QK_BOOT)
 };
 
-//* Functions
+//*** Functions
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // LayerLock
-    if (!process_layer_lock(keycode, record, K_LLOCK)) { return false; }
+    if (!process_layer_lock(keycode, record, K_LLOCK)) {
+        return false;
+    }
     // CapsWord
-    if (!process_caps_word(keycode, record)) { return false; }
+    if (!process_caps_word(keycode, record)) {
+        return false;
+    }
     // Alt-Tab disengage
     if (keycode != K_ALTAB && keycode != K_ALTBP) {
-        if(is_alt_tab_active) {
+        if (is_alt_tab_active) {
             is_alt_tab_active = false;
             unregister_code(KC_LALT);
         }
     }
     // Macros
-    switch(keycode) {
+    switch (keycode) {
         case K_ALTAB:
             if (record->event.pressed) {
                 if (!is_alt_tab_active) {
@@ -276,9 +287,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         case K_CLNEQ:
             if (record->event.pressed) {
                 SEND_STRING(":=");
-                // register_code(KC_X);
-            } else {
-                // unregister_code(KC_X);
             }
             break;
         case K_DOTSL:
@@ -291,43 +299,54 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 }
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case COMBO_CAPSW:
-      if (pressed) {
-        caps_word_set(true);  // Activate Caps Word!
-      }
-      break;
-    // Other combos...
-  }
+    switch (combo_index) {
+        case COMBO_CAPSW:
+            if (pressed) {
+                caps_word_set(true); // Activate Caps Word!
+            }
+            break;
+            // Other combos...
+    }
 }
 
 void matrix_scan_user(void) {
-  caps_word_task();
-  // Other tasks...
+    caps_word_task();
+    // Other tasks...
 }
 
 void caps_word_set_user(bool active) {
-  if (active) {
-    // Do something when Caps Word activates.
-    sethsv(COLOR_RED, TopLed);
-  } else {
-    // Do something when Caps Word deactivates.
-    sethsv(COLOR_BASE, TopLed);
-  }
+    if (active) {
+        // Do something when Caps Word activates.
+        sethsv(COLOR_WHITE, TopLed);
+    } else {
+        // Do something when Caps Word deactivates.
+        switch(Current_DL) {
+            case _QRTY:
+                sethsv(COLOR_BASE, TopLed);
+                break;
+            case _GAME:
+                sethsv(COLOR_MAGENTA, TopLed);
+                break;
+            default:
+                sethsv(COLOR_OFF, TopLed);
+                break;
+        }
+    }
+    rgblight_set();
 }
 
-//** LED LIGHTS **
+//*** Led Management
 
 #ifdef RGBLIGHT_ENABLE
 
 void keyboard_post_init_user(void) {
-  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-  rgblight_sethsv_noeeprom(COLOR_BASE);
-  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+    rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+    rgblight_sethsv_noeeprom(COLOR_BASE);
+    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
-    switch(biton32(state)){
+    switch (biton32(state)) {
         case _QRTY:
             rgblight_sethsv(COLOR_BASE);
             Current_DL = _QRTY;
@@ -337,6 +356,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
             Current_DL = _GAME;
             break;
     };
+    rgblight_set();
     return state;
 };
 
@@ -361,7 +381,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             sethsv(COLOR_YELLOW, TopLed);
             break;
         default: // for any other layers, set based on current default layer
-            switch(Current_DL){
+            switch (Current_DL) {
                 case _QRTY:
                     sethsv(COLOR_BASE, TopLed);
                     break;
@@ -375,7 +395,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
     }
     rgblight_set();
-  return state;
+    return state;
 }
 
 #endif

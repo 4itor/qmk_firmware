@@ -30,6 +30,7 @@
   #define COLOR_BLUE HUE(169)
   #define COLOR_VIOLET HUE(190)
   #define COLOR_MAGENTA HUE(211)
+  #define COLOR_WHITE 0,0,255
   #define COLOR_OFF 0,0,0
 
   // Lighting Layers
