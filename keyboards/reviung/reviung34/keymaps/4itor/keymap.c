@@ -35,34 +35,36 @@ enum custom_keycodes {
 #define _void_ XXXXXXX
 
 // Layer 0 (_QRTY) - Left-hand home row mods
-#define GUI_A LGUI_T(KC_A)
-#define ALT_S LALT_T(KC_S)
-#define CTL_D LCTL_T(KC_D)
-#define SFT_F LSFT_T(KC_F)
+#define GUI_A    LGUI_T(KC_A)
+#define ALT_S    LALT_T(KC_S)
+#define CTL_D    LCTL_T(KC_D)
+#define SFT_F    LSFT_T(KC_F)
 
 // Layer 0 (_QRTY) - Right-hand home row mods
-#define SFT_J RSFT_T(KC_J)
-#define CTL_K RCTL_T(KC_K)
-#define ALT_L LALT_T(KC_L)
+#define SFT_J    RSFT_T(KC_J)
+#define CTL_K    RCTL_T(KC_K)
+#define ALT_L    LALT_T(KC_L)
 #define GUI_SCLN RGUI_T(KC_SCLN)
 
 // Layer 1 (_NUMB) - Left-hand home row mods
-#define GUI_F5 LGUI_T(KC_F5)
-#define ALT_F6 LALT_T(KC_F6)
-#define CTL_F7 LCTL_T(KC_F7)
-#define SFT_F8 LSFT_T(KC_F8)
+#define GUI_F5   LGUI_T(KC_F5)
+#define ALT_F6   LALT_T(KC_F6)
+#define CTL_F7   LCTL_T(KC_F7)
+#define SFT_F8   LSFT_T(KC_F8)
 
 // Layer 1 (_NUMB) - Right-hand home row mods
-#define SFT_4 RSFT_T(KC_4)
-#define CTL_5 RCTL_T(KC_5)
-#define ALT_6 LALT_T(KC_6)
-#define GUI_PSL RGUI_T(KC_PSLS)
+#define SFT_4    RSFT_T(KC_4)
+#define CTL_5    RCTL_T(KC_5)
+#define ALT_6    LALT_T(KC_6)
+#define GUI_PSL  RGUI_T(KC_PSLS)
 
 // Layer 3 (_NAVI)
-#define K_Undo LGUI(KC_Z)
-#define K_Cut LGUI(KC_X)
-#define K_Copy LGUI(KC_C)
-#define K_Paste LGUI(KC_V)
+#define K_Quit   LGUI(KC_Q)
+#define K_Close  LGUI(KC_W)
+#define K_Undo   LGUI(KC_Z)
+#define K_Cut    LGUI(KC_X)
+#define K_Copy   LGUI(KC_C)
+#define K_Paste  LGUI(KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QRTY] = LAYOUT_reviung34(
@@ -137,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MOUS] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
-  //| (Lock) |        | AltTab-Switcher |  Enter |  | Accel0 | Accel1 | Accel2 |        |        |
+  //|  QuitW | CloseW | AltTab-Switcher | (Lock) |  | Accel0 | Accel1 | Accel2 |        |        |
   //|--------|--------|-----------------|--------|  |--------|--------|--------|--------|--------|
   //|   Gui  |   Alt  |  Ctrl  |  Shift | BackSp |  | Mous_L | Mous_D | Mous_U | Mous_R |        |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
@@ -145,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //                           |   Tab  | (Held) |  | Mouse1 | Mouse2 |
   //                           `-----------------'  `-----------------'
-      K_LLOCK,  _void_, K_ALTBP, K_ALTAB,  KC_ENT,    KC_ACL0, KC_ACL1, KC_ACL2,  _void_,  _void_,
+       K_Quit, K_Close, K_ALTBP, K_ALTAB, K_LLOCK,    KC_ACL0, KC_ACL1, KC_ACL2,  _void_,  _void_,
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_BSPC,    KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  _void_,
        K_Undo,   K_Cut,  K_Copy, K_Paste,  KC_DEL,    KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _void_,
                                   _void_,  _void_,    KC_BTN1, KC_BTN2
@@ -322,10 +324,10 @@ void caps_word_set_user(bool active) {
         // Do something when Caps Word deactivates.
         switch(Current_DL) {
             case _QRTY:
-                sethsv(COLOR_BASE, TopLed);
+                sethsv(COLOR_VIOLET, TopLed);
                 break;
             case _GAME:
-                sethsv(COLOR_MAGENTA, TopLed);
+                sethsv(COLOR_ORANGE, TopLed);
                 break;
             default:
                 sethsv(COLOR_OFF, TopLed);
@@ -341,18 +343,18 @@ void caps_word_set_user(bool active) {
 
 void keyboard_post_init_user(void) {
     rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-    rgblight_sethsv_noeeprom(COLOR_BASE);
+    rgblight_sethsv_noeeprom(COLOR_VIOLET);
     rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (biton32(state)) {
         case _QRTY:
-            rgblight_sethsv(COLOR_BASE);
+            rgblight_sethsv(COLOR_VIOLET);
             Current_DL = _QRTY;
             break;
         case _GAME:
-            rgblight_sethsv(COLOR_MAGENTA);
+            rgblight_sethsv(COLOR_ORANGE);
             Current_DL = _GAME;
             break;
     };
@@ -372,7 +374,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             sethsv(COLOR_CYAN, TopLed);
             break;
         case _MOUS:
-            sethsv(COLOR_VIOLET, TopLed);
+            sethsv(COLOR_MAGENTA, TopLed);
             break;
         case _ADJT:
             sethsv(COLOR_RED, TopLed);
@@ -383,10 +385,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         default: // for any other layers, set based on current default layer
             switch (Current_DL) {
                 case _QRTY:
-                    sethsv(COLOR_BASE, TopLed);
+                    sethsv(COLOR_VIOLET, TopLed);
                     break;
                 case _GAME:
-                    sethsv(COLOR_MAGENTA, TopLed);
+                    sethsv(COLOR_ORANGE, TopLed);
                     break;
                 default:
                     sethsv(COLOR_OFF, TopLed);
