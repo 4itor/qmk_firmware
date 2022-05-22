@@ -81,12 +81,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //|    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |   Tab  |  Space |  |  Enter | BackSp |
+  //                           |   Tab  |  Space |  | BackSp |  Enter |
   //                           `-----------------'  `-----------------'
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         GUI_A,   ALT_S,   CTL_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   CTL_K,   ALT_L,GUI_SCLN,
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
-             LT(_NUMB, KC_TAB), LT(_MOUS, KC_SPC),  LT(_NAVI, KC_ENT), LT(_SYMB, KC_BSPC)
+             LT(_NUMB, KC_TAB), LT(_MOUS, KC_SPC),  LT(_NAVI, KC_BSPC), LT(_SYMB, KC_ENT)
   ),
 
   [_NUMB] = LAYOUT_reviung34(
@@ -97,12 +97,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //|   F1   |   F2   |   F3   |   F4   |        |  |    0   |    1   |    2   |    3   |    =   |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           | (Held) |  Space |  |  Enter | ADJUST |
+  //                           | (Held) |  Space |  | BackSp | ADJUST |
   //                           `-----------------'  `-----------------'
         KC_F9,  KC_F10,  KC_F11,  KC_F12,  _void_,    KC_PPLS,    KC_7,    KC_8,    KC_9, KC_PAST,
        GUI_F5,  ALT_F6,  CTL_F7,  SFT_F8,  _void_,    KC_PMNS,   SFT_4,   CTL_5,   ALT_6, GUI_PSL,
         KC_F1,   KC_F2,   KC_F3,   KC_F4,  _void_,       KC_0,    KC_1,    KC_2,    KC_3, KC_PEQL,
-                               MO(_ADJT),  KC_SPC,     KC_ENT, MO(_ADJT)
+                               MO(_ADJT),  KC_SPC,    KC_BSPC, MO(_ADJT)
   ),
 
   [_SYMB] = LAYOUT_reviung34(
@@ -113,21 +113,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //|        |   ../  |    ~   |    =   |    \   |  |    /   |        |    <   |    >   |    ?   |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           | ADJUST |  Space |  |        | (Held) |
+  //                           | ADJUST |  Space |  | BackSp | (Held) |
   //                           `-----------------'  `-----------------'
       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
        _void_, KC_UNDS, KC_MINS, KC_PLUS, KC_PIPE,     KC_GRV,  KC_DQT, KC_QUOT, K_CLNEQ, KC_COLN,
        _void_, K_DOTSL, KC_TILD,  KC_EQL, KC_BSLS,    KC_SLSH,  _void_,   KC_LT,   KC_GT, KC_QUES,
-                               MO(_ADJT),  KC_SPC,     _void_, MO(_ADJT)
+                               MO(_ADJT),  KC_SPC,    KC_BSPC, MO(_ADJT)
   ),
 
   [_NAVI] = LAYOUT_reviung34(
   //,--------------------------------------------.  ,--------------------------------------------.
-  //|        |        |        |        |        |  | (Lock) |   Esc  |        |Hyper(O)|Hyper(P)|
+  //|  Acc.^ |  Acc.~ |  Acc.` |  Acc.' |        |  | (Lock) |   Esc  |        |Hyper(O)|Hyper(P)|
   //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
   //|   Gui  |   Alt  |  Crtl  |  Shift |        |  |  Left  |  Down  |   Up   |  Right |        |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|        |        |        |        |        |  |  Home  |  PgDn  |  PgUp  |  End   |        |
+  //|        |        |    Ç   |    Ñ   |        |  |  Home  |  PgDn  |  PgUp  |  End   |        |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //                           |        | HyprSp |  | (Held) |        |
   //                           `-----------------'  `-----------------'
@@ -184,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
          KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,
          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
-                                  KC_TAB,  KC_SPC,  MO(_XTRA), KC_BSPC
+                                  KC_TAB,  KC_SPC,  MO(_XTRA),  KC_ENT
   ),
 
   [_XTRA] = LAYOUT_reviung34(
@@ -341,24 +341,53 @@ void caps_word_set_user(bool active) {
 
 #ifdef RGBLIGHT_ENABLE
 
-void keyboard_post_init_user(void) {
-    rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-    rgblight_sethsv_noeeprom(COLOR_VIOLET);
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+void rgb_backlightmode(int mode) {
+    int i;
+    switch(mode) {
+        case 0:
+            for(i = 0; i < 8; i++) {
+                rgblight_sethsv_at(i * 32, 255, 255, i);
+            }
+            break;
+        case 1:
+            for(i = 0; i < 8; i++) {
+                rgblight_sethsv_at(i * 16, 255, 255, i);
+            }
+            break;
+    }
+    rgblight_set();
 }
+
+// void keyboard_pre_init_user(void) {
+    // rgblight_disable_noeeprom();
+// }
+
+// void keyboard_post_init_user(void) {
+    // rgblight_init();
+    // rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+    // rgblight_sethsv_noeeprom(COLOR_OFF);
+    // rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+//   rgb_backlightmode(0);
+//   rgblight_enable_noeeprom(); // enables Rgb, without saving settings
+//   rgblight_sethsv_noeeprom(20, 255, 128); // sets the color to teal/cyan without saving
+//   rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT); // sets mode to Fast breathing without saving
+// }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (biton32(state)) {
         case _QRTY:
-            rgblight_sethsv(COLOR_VIOLET);
+            // rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_GRADIENT);
+            //rgblight_sethsv(COLOR_VIOLET);
+            // rgb_backlightmode(0);
             Current_DL = _QRTY;
             break;
         case _GAME:
-            rgblight_sethsv(COLOR_ORANGE);
+            // rgblight_sethsv(COLOR_ORANGE);
+            // rgb_backlightmode(1);
             Current_DL = _GAME;
             break;
     };
-    rgblight_set();
+    //rgblight_set();
     return state;
 };
 

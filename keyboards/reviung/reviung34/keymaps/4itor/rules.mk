@@ -8,10 +8,14 @@ COMMAND_ENABLE = no        # Commands for debug and configuration
 NKRO_ENABLE = yes          # USB Nkey Rollover
 # LTO_ENABLE = yes
 RGBLIGHT_ENABLE = yes
+RGB_MATRIX_ENABLE = no
 COMBO_ENABLE = yes
+SPACE_CADET_ENABLE = no
+GRAVE_ESC_ENABLE = no
+MAGIC_ENABLE = no
 
 #* Via
-VIA_ENABLE = no
+VIA_ENABLE = yes
 
 #* Vial
 # VIAL_ENABLE = no

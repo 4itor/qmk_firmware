@@ -14,11 +14,14 @@
   #define RGBLIGHT_LIMIT_VAL 255
   #define RGBLIGHT_SLEEP
   // /*== all animations enable ==*/
-  // #define RGBLIGHT_ANIMATIONS
+  #undef RGBLIGHT_ANIMATIONS
+  #define RGBLIGHT_EFFECT_STATIC_GRADIENT
   //#define RGBLIGHT_MODE_BREATHING
   //#define RGBLIGHT_MODE_RAINBOW_MOOD
   //#define RGBLIGHT_MODE_RAINBOW_SWIRL
+  #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_GRADIENT
   #undef RGBLIGHT_LAYERS
+  #undef RGB_MATRIX_ENABLE
 
   // Led HSV colors (half intensity)
   #define HUE(hue) hue,255,255
