@@ -4,6 +4,10 @@
 // #define VIAL_UNLOCK_COMBO_ROWS {0, 3}
 // #define VIAL_UNLOCK_COMBO_COLS {0, 5}
 
+// Combo Settings
+#define COMBO_TERM 40
+#define EXTRA_SHORT_COMBOS
+
 // the non split version
 #define RGB_DI_PIN D3
 #ifdef RGB_DI_PIN
