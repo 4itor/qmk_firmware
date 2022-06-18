@@ -35,173 +35,141 @@ enum custom_keycodes {
 #define _void_ XXXXXXX
 
 // Layer 0 (_QRTY) - Left-hand home row mods
-#define GUI_A    LGUI_T(KC_A)
-#define ALT_S    LALT_T(KC_S)
-#define CTL_D    LCTL_T(KC_D)
-#define SFT_F    LSFT_T(KC_F)
+#define GUI_A LGUI_T(KC_A)
+#define ALT_S LALT_T(KC_S)
+#define CTL_D LCTL_T(KC_D)
+#define SFT_F LSFT_T(KC_F)
 
 // Layer 0 (_QRTY) - Right-hand home row mods
-#define SFT_J    RSFT_T(KC_J)
-#define CTL_K    RCTL_T(KC_K)
-#define ALT_L    LALT_T(KC_L)
+#define SFT_J RSFT_T(KC_J)
+#define CTL_K RCTL_T(KC_K)
+#define ALT_L LALT_T(KC_L)
 #define GUI_SCLN RGUI_T(KC_SCLN)
 
 // Layer 1 (_NUMB) - Left-hand home row mods
-#define GUI_F5   LGUI_T(KC_F5)
-#define ALT_F6   LALT_T(KC_F6)
-#define CTL_F7   LCTL_T(KC_F7)
-#define SFT_F8   LSFT_T(KC_F8)
+#define GUI_F5 LGUI_T(KC_F5)
+#define ALT_F6 LALT_T(KC_F6)
+#define CTL_F7 LCTL_T(KC_F7)
+#define SFT_F8 LSFT_T(KC_F8)
 
 // Layer 1 (_NUMB) - Right-hand home row mods
-#define SFT_4    RSFT_T(KC_4)
-#define CTL_5    RCTL_T(KC_5)
-#define ALT_6    LALT_T(KC_6)
-#define GUI_PSL  RGUI_T(KC_PSLS)
+#define SFT_4 RSFT_T(KC_4)
+#define CTL_5 RCTL_T(KC_5)
+#define ALT_6 LALT_T(KC_6)
+#define GUI_PSL RGUI_T(KC_PSLS)
 
 // Layer 3 (_NAVI)
-#define K_Quit   LGUI(KC_Q)
-#define K_Close  LGUI(KC_W)
-#define K_Undo   LGUI(KC_Z)
-#define K_Cut    LGUI(KC_X)
-#define K_Copy   LGUI(KC_C)
-#define K_Paste  LGUI(KC_V)
+#define K_Quit LGUI(KC_Q)
+#define K_Close LGUI(KC_W)
+#define K_Undo LGUI(KC_Z)
+#define K_Cut LGUI(KC_X)
+#define K_Copy LGUI(KC_C)
+#define K_Paste LGUI(KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QRTY] = LAYOUT_reviung34(
-  // Combos:
-  //  U+I -> Esc
-  //  R+T -> (     Y+U -> )
-  //  F+G -> {     H+J -> }
-  //  V+B -> [     N+M -> ]
-  //  V+M -> CapsWord
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //|  A,Gui |  S,Alt |  D,Ctl |  F,Sft |    G   |  |    H   |  J,Sft |  K,Ctl |  L,Alt |  ;,Gui |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |   Tab  | BackSp |  |  Space |  Enter |
-  //                           `-----------------'  `-----------------'
-         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-        GUI_A,   ALT_S,   CTL_D,   SFT_F,    KC_G,       KC_H,   SFT_J,   CTL_K,   ALT_L,GUI_SCLN,
-         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
-             LT(_NUMB, KC_TAB), LT(_MOUS, KC_BSPC),  LT(_NAVI, KC_SPC), LT(_SYMB, KC_ENT)
-  ),
+    [_QRTY] = LAYOUT_reviung34(
+        // Combos:
+        //  U+I -> Esc
+        //  R+T -> (     Y+U -> )
+        //  F+G -> {     H+J -> }
+        //  V+B -> [     N+M -> ]
+        //  V+M -> CapsWord
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //|  A,Gui |  S,Alt |  D,Ctl |  F,Sft |    G   |  |    H   |  J,Sft |  K,Ctl |  L,Alt |  ;,Gui |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           |   Tab  | BackSp |  |  Space |  Enter |
+        //                           `-----------------'  `-----------------'
+        KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, GUI_A, ALT_S, CTL_D, SFT_F, KC_G, KC_H, SFT_J, CTL_K, ALT_L, GUI_SCLN, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, LT(_NUMB, KC_TAB), LT(_MOUS, KC_BSPC), LT(_NAVI, KC_SPC), LT(_SYMB, KC_ENT)),
 
-  [_NUMB] = LAYOUT_reviung34(
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|   F9   |  F10   |   F11  |   F12  |        |  |    +   |    7   |    8   |    9   |    *   |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //| F5,Gui | F6,Alt | F7,Ctl | F8,Sft |        |  |    -   |  4,Sft |  5,Ctl |  6,Alt |  /,Gui |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|   F1   |   F2   |   F3   |   F4   |        |  |    0   |    1   |    2   |    3   |    =   |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           | (Held) | BackSp |  |  Space | ADJUST |
-  //                           `-----------------'  `-----------------'
-        KC_F9,  KC_F10,  KC_F11,  KC_F12,  _void_,    KC_PPLS,    KC_7,    KC_8,    KC_9, KC_PAST,
-       GUI_F5,  ALT_F6,  CTL_F7,  SFT_F8,  _void_,    KC_PMNS,   SFT_4,   CTL_5,   ALT_6, GUI_PSL,
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,  _void_,       KC_0,    KC_1,    KC_2,    KC_3, KC_PEQL,
-                               MO(_ADJT), KC_BSPC,     KC_SPC, MO(_ADJT)
-  ),
+    [_NUMB] = LAYOUT_reviung34(
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|   F9   |  F10   |   F11  |   F12  |        |  |    +   |    7   |    8   |    9   |    *   |
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //| F5,Gui | F6,Alt | F7,Ctl | F8,Sft |        |  |    -   |  4,Sft |  5,Ctl |  6,Alt |  /,Gui |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|   F1   |   F2   |   F3   |   F4   |        |  |    0   |    1   |    2   |    3   |    =   |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           | (Held) | BackSp |  |  Space | ADJUST |
+        //                           `-----------------'  `-----------------'
+        KC_F9, KC_F10, KC_F11, KC_F12, _void_, KC_PPLS, KC_7, KC_8, KC_9, KC_PAST, GUI_F5, ALT_F6, CTL_F7, SFT_F8, _void_, KC_PMNS, SFT_4, CTL_5, ALT_6, GUI_PSL, KC_F1, KC_F2, KC_F3, KC_F4, _void_, KC_0, KC_1, KC_2, KC_3, KC_PEQL, MO(_ADJT), KC_BSPC, KC_SPC, MO(_ADJT)),
 
-  [_SYMB] = LAYOUT_reviung34(
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //|    ?   |    _   |    -   |    +   |    |   |  |    `   |    "   |    '   |   :=   |    :   |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|        |   ../  |    ~   |    =   |    \   |  |    /   |        |    <   |    >   |    ?   |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           | ADJUST | BackSp |  |  Space | (Held) |
-  //                           `-----------------'  `-----------------'
-      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
-       _void_, KC_UNDS, KC_MINS, KC_PLUS, KC_PIPE,     KC_GRV,  KC_DQT, KC_QUOT, K_CLNEQ, KC_COLN,
-       _void_, K_DOTSL, KC_TILD,  KC_EQL, KC_BSLS,    KC_SLSH,  _void_,   KC_LT,   KC_GT, KC_QUES,
-                               MO(_ADJT), KC_BSPC,     KC_SPC, MO(_ADJT)
-  ),
+    [_SYMB] = LAYOUT_reviung34(
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|    !   |    @   |    #   |    $   |    %   |  |    ^   |    &   |    *   |    (   |    )   |
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //|    ?   |    _   |    -   |    +   |    |   |  |    `   |    "   |    '   |   :=   |    :   |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|        |   ../  |    ~   |    =   |    \   |  |    /   |        |    <   |    >   |    ?   |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           | ADJUST | BackSp |  |  Space | (Held) |
+        //                           `-----------------'  `-----------------'
+        KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _void_, KC_UNDS, KC_MINS, KC_PLUS, KC_PIPE, KC_GRV, KC_DQT, KC_QUOT, K_CLNEQ, KC_COLN, _void_, K_DOTSL, KC_TILD, KC_EQL, KC_BSLS, KC_SLSH, _void_, KC_LT, KC_GT, KC_QUES, MO(_ADJT), KC_BSPC, KC_SPC, MO(_ADJT)),
 
-  [_NAVI] = LAYOUT_reviung34(
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|  Acc.^ |  Acc.~ |  Acc.` |  Acc.' |        |  | (Lock) |   Esc  |        |Hyper(O)|Hyper(P)|
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //|   Gui  |   Alt  |  Crtl  |  Shift |        |  |  Left  |  Down  |   Up   |  Right |        |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|        |        |    Ç   |    Ñ   |        |  |  Home  |  PgDn  |  PgUp  |  End   |        |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |        | HyprSp |  | (Held) |        |
-  //                           `-----------------'  `-----------------'
-       _void_,  _void_,  _void_,  _void_,  _void_,    K_LLOCK,  KC_ESC,  _void_,HYPR(KC_O),HYPR(KC_P),
-      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  _void_,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  _void_,
-       _void_,  _void_,  _void_,  _void_,  _void_,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  _void_,
-                             _void_, HYPR(KC_SPC),     _void_,  _void_
-  ),
+    [_NAVI] = LAYOUT_reviung34(
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|  Acc.^ |  Acc.~ |  Acc.` |  Acc.' |        |  | (Lock) |   Esc  |        |Hyper(O)|Hyper(P)|
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //|   Gui  |   Alt  |  Crtl  |  Shift |        |  |  Left  |  Down  |   Up   |  Right |        |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|        |        |    Ç   |    Ñ   |        |  |  Home  |  PgDn  |  PgUp  |  End   |        |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           |        | HyprSp |  | (Held) |        |
+        //                           `-----------------'  `-----------------'
+        _void_, _void_, _void_, _void_, _void_, K_LLOCK, KC_ESC, _void_, HYPR(KC_O), HYPR(KC_P), KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _void_, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _void_, _void_, _void_, _void_, _void_, _void_, KC_HOME, KC_PGDN, KC_PGUP, KC_END, _void_, _void_, HYPR(KC_SPC), _void_, _void_),
 
-  [_MOUS] = LAYOUT_reviung34(
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|  QuitW | CloseW | AltTab-Switcher | (Lock) |  | Accel0 | Accel1 | Accel2 |        |        |
-  //|--------|--------|-----------------|--------|  |--------|--------|--------|--------|--------|
-  //|   Gui  |   Alt  |  Ctrl  |  Shift | BackSp |  | Mous_L | Mous_D | Mous_U | Mous_R |        |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|  Undo  |   Cut  |  Copy  |  Paste |   Del  |  | Scrl_L | Scrl_D | Scrl_U | Scrl_R |        |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |   Tab  | (Held) |  | Mouse1 | Mouse2 |
-  //                           `-----------------'  `-----------------'
-       K_Quit, K_Close, K_ALTBP, K_ALTAB, K_LLOCK,    KC_ACL0, KC_ACL1, KC_ACL2,  _void_,  _void_,
-      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_BSPC,    KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,  _void_,
-       K_Undo,   K_Cut,  K_Copy, K_Paste,  KC_DEL,    KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _void_,
-                                  _void_,  _void_,    KC_BTN1, KC_BTN2
-  ),
+    [_MOUS] = LAYOUT_reviung34(
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|  QuitW | CloseW | AltTab-Switcher | (Lock) |  | Accel0 | Accel1 | Accel2 |        |        |
+        //|--------|--------|-----------------|--------|  |--------|--------|--------|--------|--------|
+        //|   Gui  |   Alt  |  Ctrl  |  Shift | BackSp |  | Mous_L | Mous_D | Mous_U | Mous_R |        |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|  Undo  |   Cut  |  Copy  |  Paste |   Del  |  | Scrl_L | Scrl_D | Scrl_U | Scrl_R |        |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           |   Tab  | (Held) |  | Mouse1 | Mouse2 |
+        //                           `-----------------'  `-----------------'
+        K_Quit, K_Close, K_ALTBP, K_ALTAB, K_LLOCK, KC_ACL0, KC_ACL1, KC_ACL2, _void_, _void_, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_BSPC, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _void_, K_Undo, K_Cut, K_Copy, K_Paste, KC_DEL, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _void_, _void_, _void_, KC_BTN1, KC_BTN2),
 
-  [_ADJT] = LAYOUT_reviung34(
-  // Combos:
-  //  Q+P -> Keyboard Reset
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //| ResetQ |        |        |BackLght|Breathng|  |  Play  |  Prev  |  Nex   |        | ResetP |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //|        |        |        |        |        |  |  Mute  |  Vol-  |  Vol+  |        |        |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|        |        |        |        |        |  |        |  Src-  |  Scr+  |        |  GAME  |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           | (Held) |        |  |        | (Held) |
-  //                           `-----------------'  `-----------------'
-      K_RST_Q,  _void_,  _void_, BL_TOGG, BL_BRTG,    KC_MPLY, KC_MPRV, KC_MNXT,  _void_, K_RST_P,
-       _void_,  _void_,  _void_,  _void_,  _void_,    KC_MUTE, KC_VOLD, KC_VOLU,  _void_,  _void_,
-       _void_,  _void_,  _void_,  _void_,  _void_,     _void_, KC_BRID, KC_BRIU,  _void_,DF(_GAME),
-                                  _void_,  _void_,     _void_,  _void_
-  ),
+    [_ADJT] = LAYOUT_reviung34(
+        // Combos:
+        //  Q+P -> Keyboard Reset
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //| ResetQ |        |        |BackLght|Breathng|  |  Play  |  Prev  |  Nex   |        | ResetP |
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //|        |        |        |        |        |  |  Mute  |  Vol-  |  Vol+  |        |        |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|        |        |        |        |        |  |        |  Src-  |  Scr+  |        |  GAME  |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           | (Held) |        |  |        | (Held) |
+        //                           `-----------------'  `-----------------'
+        K_RST_Q, _void_, _void_, BL_TOGG, BL_BRTG, KC_MPLY, KC_MPRV, KC_MNXT, _void_, K_RST_P, _void_, _void_, _void_, _void_, _void_, KC_MUTE, KC_VOLD, KC_VOLU, _void_, _void_, _void_, _void_, _void_, _void_, _void_, _void_, KC_BRID, KC_BRIU, _void_, DF(_GAME), _void_, _void_, _void_, _void_),
 
-  [_GAME] = LAYOUT_reviung34(
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //|    A   |    S   |    D   |    F   |    G   |  |    H   |    J   |    K   |    L   |    ;   |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |   Tab  | BackSp |  |  XTRA  |  Enter |
-  //                           `-----------------'  `-----------------'
-         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,
-         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
-                                  KC_TAB, KC_BSPC,  LT(_XTRA, KC_SPC),  KC_ENT
-  ),
+    [_GAME] = LAYOUT_reviung34(
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|    Q   |    W   |    E   |    R   |    T   |  |    Y   |    U   |    I   |    O   |    P   |
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //|    A   |    S   |    D   |    F   |    G   |  |    H   |    J   |    K   |    L   |    ;   |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|    Z   |    X   |    C   |    V   |    B   |  |    N   |    M   |    ,   |    .   |    /   |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           |   Tab  | BackSp |  |  XTRA  |  Enter |
+        //                           `-----------------'  `-----------------'
+        KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_TAB, KC_BSPC, LT(_XTRA, KC_SPC), KC_ENT),
 
-  [_XTRA] = LAYOUT_reviung34(
-  //,--------------------------------------------.  ,--------------------------------------------.
-  //|    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |
-  //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //|        |        |        |        |        |  |  Left  |  Down  |   Up   |  Right |        |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|        |        |        |        |        |  |  Home  |  PgDn  |  PgUp  |  End   |  QRTY  |
-  //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |   Tab  |        |  | (Held) |        |
-  //                           `-----------------'  `-----------------'
-         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
-       _void_,  _void_,  _void_,  _void_,  _void_,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  _void_,
-       _void_,  _void_,  _void_,  _void_,  _void_,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END,DF(_QRTY),
-                                  _void_,  _void_,     _void_,  _void_
-  ),
+    [_XTRA] = LAYOUT_reviung34(
+        //,--------------------------------------------.  ,--------------------------------------------.
+        //|    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |
+        //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
+        //|        |        |        |        |        |  |  Left  |  Down  |   Up   |  Right |        |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //|        |        |        |        |        |  |  Home  |  PgDn  |  PgUp  |  End   |  QRTY  |
+        //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
+        //                           |   Tab  |        |  | (Held) |        |
+        //                           `-----------------'  `-----------------'
+        KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, _void_, _void_, _void_, _void_, _void_, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _void_, _void_, _void_, _void_, _void_, _void_, KC_HOME, KC_PGDN, KC_PGUP, KC_END, DF(_QRTY), _void_, _void_, _void_, _void_),
 };
 
 //*** Combos!
@@ -230,17 +198,7 @@ const uint16_t PROGMEM combo_vb[]     = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM combo_nm[]     = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM combo_adj_qp[] = {K_RST_Q, K_RST_P, COMBO_END};
 
-combo_t key_combos[COMBO_LENGTH] = {
-    [COMBO_ESC]   = COMBO(combo_uio, KC_ESC),
-    [COMBO_CAPSW] = COMBO_ACTION(combo_vm),
-    [COMBO_LPRN]  = COMBO(combo_rt, KC_LPRN),
-    [COMBO_RPRN]  = COMBO(combo_yu, KC_RPRN),
-    [COMBO_LCBR]  = COMBO(combo_fg, KC_LCBR),
-    [COMBO_RCBR]  = COMBO(combo_hj, KC_RCBR),
-    [COMBO_LBRC]  = COMBO(combo_vb, KC_LBRC),
-    [COMBO_RBRC]  = COMBO(combo_nm, KC_RBRC),
-    [COMBO_RESET] = COMBO(combo_adj_qp, QK_BOOT)
-};
+combo_t key_combos[COMBO_LENGTH] = {[COMBO_ESC] = COMBO(combo_uio, KC_ESC), [COMBO_CAPSW] = COMBO_ACTION(combo_vm), [COMBO_LPRN] = COMBO(combo_rt, KC_LPRN), [COMBO_RPRN] = COMBO(combo_yu, KC_RPRN), [COMBO_LCBR] = COMBO(combo_fg, KC_LCBR), [COMBO_RCBR] = COMBO(combo_hj, KC_RCBR), [COMBO_LBRC] = COMBO(combo_vb, KC_LBRC), [COMBO_RBRC] = COMBO(combo_nm, KC_RBRC), [COMBO_RESET] = COMBO(combo_adj_qp, QK_BOOT)};
 
 //*** Functions
 
@@ -322,7 +280,7 @@ void caps_word_set_user(bool active) {
         sethsv(COLOR_WHITE, TopLed);
     } else {
         // Do something when Caps Word deactivates.
-        switch(Current_DL) {
+        switch (Current_DL) {
             case _QRTY:
                 sethsv(COLOR_VIOLET, TopLed);
                 break;
@@ -343,14 +301,14 @@ void caps_word_set_user(bool active) {
 
 void rgb_backlightmode(int mode) {
     int i;
-    switch(mode) {
+    switch (mode) {
         case 0:
-            for(i = 0; i < 8; i++) {
+            for (i = 0; i < 8; i++) {
                 rgblight_sethsv_at(i * 32, 255, 255, i);
             }
             break;
         case 1:
-            for(i = 0; i < 8; i++) {
+            for (i = 0; i < 8; i++) {
                 rgblight_sethsv_at(i * 16, 255, 255, i);
             }
             break;
@@ -359,25 +317,40 @@ void rgb_backlightmode(int mode) {
 }
 
 // void keyboard_pre_init_user(void) {
-    // rgblight_disable_noeeprom();
+// rgblight_disable_noeeprom();
 // }
 
 // void keyboard_post_init_user(void) {
-    // rgblight_init();
-    // rgblight_enable_noeeprom(); // Enables RGB, without saving settings
-    // rgblight_sethsv_noeeprom(COLOR_OFF);
-    // rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+// rgblight_init();
+// rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+// rgblight_sethsv_noeeprom(COLOR_OFF);
+// rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 //   rgb_backlightmode(0);
 //   rgblight_enable_noeeprom(); // enables Rgb, without saving settings
 //   rgblight_sethsv_noeeprom(20, 255, 128); // sets the color to teal/cyan without saving
 //   rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT); // sets mode to Fast breathing without saving
 // }
 
+void keyboard_post_init_user(void) {
+    switch (Current_DL) {
+        case _QRTY:
+            sethsv(COLOR_VIOLET, TopLed);
+            break;
+        case _GAME:
+            sethsv(COLOR_ORANGE, TopLed);
+            break;
+        default:
+            sethsv(COLOR_OFF, TopLed);
+            break;
+    }
+    rgblight_set();
+}
+
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (biton32(state)) {
         case _QRTY:
             // rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_GRADIENT);
-            //rgblight_sethsv(COLOR_VIOLET);
+            // rgblight_sethsv(COLOR_VIOLET);
             // rgb_backlightmode(0);
             Current_DL = _QRTY;
             break;
@@ -387,7 +360,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
             Current_DL = _GAME;
             break;
     };
-    //rgblight_set();
+    // rgblight_set();
     return state;
 };
 
