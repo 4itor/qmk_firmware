@@ -28,7 +28,7 @@
   #undef RGB_MATRIX_ENABLE
 
   // Led HSV colors (half intensity)
-  #define HUE(hue) hue,255,255
+  #define HUE(hue) hue,255,128
   #define COLOR_ORANGE HUE(24)
   #define COLOR_RED HUE(0)
   #define COLOR_YELLOW HUE(55)
