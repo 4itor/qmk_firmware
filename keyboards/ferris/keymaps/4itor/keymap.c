@@ -92,19 +92,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             LT(_NUMB, KC_TAB), LT(_MOUS, KC_BSPC),   LT(_NAVI, KC_SPC), LT(_SYMB, KC_ENT)
   ),
 
-  [_NUMB] = LAYOUT(
+ [_NUMB] = LAYOUT(
   //,--------------------------------------------.  ,--------------------------------------------.
-  //|   F9   |  F10   |   F11  |   F12  |        |  |    +   |    7   |    8   |    9   |    *   |
+  //|    1   |    2   |    3   |    4   |    5   |  |    6   |    7   |    8   |    9   |    0   |
   //|--------|--------|--------|--------|--------|  |--------|--------|--------|--------|--------|
-  //| F5,Gui | F6,Alt | F7,Ctl | F8,Sft |        |  |    -   |  4,Sft |  5,Ctl |  6,Alt |  /,Gui |
+  //|   Gui  |   Alt  |   Ctl  |  Shift |   F11  |  |   F12  |  Shift |  Ctrl  |   Alt  |   Gui  |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //|   F1   |   F2   |   F3   |   F4   |        |  |    0   |    1   |    2   |    3   |    =   |
+  //|   F1   |   F2   |   F3   |   F4   |   F5   |  |   F6   |   F7   |   F8   |   F9   |   F10  |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //                           | (Held) | BackSp |  |  Space | ADJUST |
   //                           `-----------------'  `-----------------'
-        KC_F9,  KC_F10,  KC_F11,  KC_F12,  _void_,    KC_PPLS,    KC_7,    KC_8,    KC_9, KC_PAST,
-       GUI_F5,  ALT_F6,  CTL_F7,  SFT_F8,  _void_,    KC_PMNS,   SFT_4,   CTL_5,   ALT_6, GUI_PSL,
-        KC_F1,   KC_F2,   KC_F3,   KC_F4,  _void_,       KC_0,    KC_1,    KC_2,    KC_3, KC_PEQL,
+         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
+      KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_F11,     KC_F12, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,
                                MO(_ADJT), KC_BSPC,     KC_SPC, MO(_ADJT)
   ),
 
@@ -210,7 +210,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //*** Combos!
 
 enum combo_events {
-    COMBO_ESC,   //  U+I+O -> Esc
+    COMBO_ESC1,  //  U+I+O -> Esc
+    COMBO_ESC2,  //  W+E+R -> Esc
     COMBO_CAPSW, //  V+M -> CapsWord
     COMBO_LPRN,  //  R+T -> (
     COMBO_RPRN,  //  Y+U -> )
@@ -224,6 +225,7 @@ enum combo_events {
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM combo_uio[]    = {KC_U, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_wer[]    = {KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_vm[]     = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM combo_rt[]     = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM combo_yu[]     = {KC_Y, KC_U, COMBO_END};
@@ -234,7 +236,8 @@ const uint16_t PROGMEM combo_nm[]     = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM combo_adj_qp[] = {K_RST_Q, K_RST_P, COMBO_END};
 
 combo_t key_combos[COMBO_LENGTH] = {
-    [COMBO_ESC]   = COMBO(combo_uio, KC_ESC),
+    [COMBO_ESC1] = COMBO(combo_uio, KC_ESC),
+    [COMBO_ESC2] = COMBO(combo_wer, KC_ESC),
     [COMBO_CAPSW] = COMBO_ACTION(combo_vm),
     [COMBO_LPRN]  = COMBO(combo_rt, KC_LPRN),
     [COMBO_RPRN]  = COMBO(combo_yu, KC_RPRN),
@@ -317,6 +320,18 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 void matrix_scan_user(void) {
     caps_word_task();
     // Other tasks...
+}
+
+//*** Tapping term per key
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case GUI_A:
+        case GUI_SCLN:
+            return TAPPING_TERM_PINKY;
+        default:
+            return TAPPING_TERM;
+    }
 }
 
 //! Old version

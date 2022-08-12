@@ -329,6 +329,18 @@ void caps_word_set_user(bool active) {
     rgblight_set();
 }
 
+//*** Tapping term per key
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case GUI_A:
+        case GUI_SCLN:
+            return TAPPING_TERM_PINKY;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 //*** Led Management
 
 #ifdef RGBLIGHT_ENABLE
