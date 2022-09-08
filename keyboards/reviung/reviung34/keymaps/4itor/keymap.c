@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
   //|        |        |    Ç   |    Ñ   |        |  |  Home  |  PgDn  |  PgUp  |  End   |        |
   //|--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------|
-  //                           |        | HyprSp |  | (Held) |        |
+  //                           | HyprSp | Delete | (Held) |        |
   //                           `-----------------'  `-----------------'
        _void_,  _void_,  _void_,  _void_,  _void_,    K_LLOCK,  KC_ESC,  _void_,HYPR(KC_O),HYPR(KC_P),
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  _void_,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  _void_,
@@ -224,7 +224,7 @@ const uint16_t PROGMEM combo_adj_qp[] = {K_RST_Q, K_RST_P, COMBO_END};
 combo_t key_combos[COMBO_LENGTH] = {
     [COMBO_ESC1] = COMBO(combo_uio, KC_ESC),
     [COMBO_ESC2] = COMBO(combo_wer, KC_ESC),
-    [COMBO_CAPSW] = COMBO_ACTION(combo_vm),
+    [COMBO_CAPSW] = COMBO_ACTION(combo_fj),
     [COMBO_LPRN] = COMBO(combo_rt, KC_LPRN),
     [COMBO_RPRN] = COMBO(combo_yu, KC_RPRN),
     [COMBO_LCBR] = COMBO(combo_fg, KC_LCBR),
