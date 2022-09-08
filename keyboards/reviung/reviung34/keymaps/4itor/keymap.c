@@ -212,7 +212,7 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM combo_uio[]    = {KC_U, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_wer[]    = {KC_W, KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_vm[]     = {KC_V, KC_M, COMBO_END};
+const uint16_t PROGMEM combo_fj[]     = {SFT_F, SFT_J, COMBO_END};
 const uint16_t PROGMEM combo_rt[]     = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM combo_yu[]     = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM combo_fg[]     = {SFT_F, KC_G, COMBO_END};
