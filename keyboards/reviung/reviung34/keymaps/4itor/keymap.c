@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _void_,  _void_,  _void_,  _void_,  _void_,    K_LLOCK,  KC_ESC,  _void_,HYPR(KC_O),HYPR(KC_P),
       KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  _void_,    KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  _void_,
        _void_,  _void_,  _void_,  _void_,  _void_,    KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  _void_,
-                             _void_, HYPR(KC_SPC),     _void_,  _void_
+                             HYPR(KC_SPC), KC_DEL,    _void_,  _void_
   ),
 
   [_MOUS] = LAYOUT_reviung34(
