@@ -8,7 +8,7 @@
 #define EXTRA_SHORT_COMBOS
 
 // Number of layers
-#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 // Configure the global tapping term (default: 200ms)
 #define TAPPING_TERM 200
