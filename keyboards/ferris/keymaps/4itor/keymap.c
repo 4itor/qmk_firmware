@@ -198,12 +198,12 @@ enum combo_events {
     COMBO_ESC1,  //  U+I+O -> Esc
     COMBO_ESC2,  //  W+E+R -> Esc
     COMBO_CAPSW, //  F+J -> CapsWord
-    COMBO_LPRN,  //  R+T -> (
-    COMBO_RPRN,  //  Y+U -> )
-    COMBO_LCBR,  //  F+G -> {
-    COMBO_RCBR,  //  H+J -> }
-    COMBO_LBRC,  //  V+B -> [
-    COMBO_RBRC,  //  N+M -> ]
+    // COMBO_LPRN,  //  R+T -> (
+    // COMBO_RPRN,  //  Y+U -> )
+    // COMBO_LCBR,  //  F+G -> {
+    // COMBO_RCBR,  //  H+J -> }
+    // COMBO_LBRC,  //  V+B -> [
+    // COMBO_RBRC,  //  N+M -> ]
     COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
@@ -211,32 +211,32 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 const uint16_t PROGMEM combo_uio[]    = {KC_U, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_wer[]    = {KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_fj[]     = {SFT_F, SFT_J, COMBO_END};
-const uint16_t PROGMEM combo_rt[]     = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_yu[]     = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_fg[]     = {SFT_F, KC_G, COMBO_END};
-const uint16_t PROGMEM combo_hj[]     = {KC_H, SFT_J, COMBO_END};
-const uint16_t PROGMEM combo_vb[]     = {KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM combo_nm[]     = {KC_N, KC_M, COMBO_END};
+// const uint16_t PROGMEM combo_rt[]     = {KC_R, KC_T, COMBO_END};
+// const uint16_t PROGMEM combo_yu[]     = {KC_Y, KC_U, COMBO_END};
+// const uint16_t PROGMEM combo_fg[]     = {SFT_F, KC_G, COMBO_END};
+// const uint16_t PROGMEM combo_hj[]     = {KC_H, SFT_J, COMBO_END};
+// const uint16_t PROGMEM combo_vb[]     = {KC_V, KC_B, COMBO_END};
+// const uint16_t PROGMEM combo_nm[]     = {KC_N, KC_M, COMBO_END};
 
 combo_t key_combos[COMBO_LENGTH] = {
     [COMBO_ESC1]  = COMBO(combo_uio, KC_ESC),
     [COMBO_ESC2]  = COMBO(combo_wer, KC_ESC),
     [COMBO_CAPSW] = COMBO_ACTION(combo_fj),
-    [COMBO_LPRN]  = COMBO(combo_rt, KC_LPRN),
-    [COMBO_RPRN]  = COMBO(combo_yu, KC_RPRN),
-    [COMBO_LCBR]  = COMBO(combo_fg, KC_LCBR),
-    [COMBO_RCBR]  = COMBO(combo_hj, KC_RCBR),
-    [COMBO_LBRC]  = COMBO(combo_vb, KC_LBRC),
-    [COMBO_RBRC]  = COMBO(combo_nm, KC_RBRC)
+    // [COMBO_LPRN]  = COMBO(combo_rt, KC_LPRN),
+    // [COMBO_RPRN]  = COMBO(combo_yu, KC_RPRN),
+    // [COMBO_LCBR]  = COMBO(combo_fg, KC_LCBR),
+    // [COMBO_RCBR]  = COMBO(combo_hj, KC_RCBR),
+    // [COMBO_LBRC]  = COMBO(combo_vb, KC_LBRC),
+    // [COMBO_RBRC]  = COMBO(combo_nm, KC_RBRC)
 };
 
 //*** Functions
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // LayerLock
-    if (!process_layer_lock(keycode, record, K_LLOCK)) {
-        return false;
-    }
+    // if (!process_layer_lock(keycode, record, K_LLOCK)) {
+    //     return false;
+    // }
     // CapsWord
     if (!process_caps_word(keycode, record)) {
         return false;

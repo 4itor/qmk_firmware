@@ -22,5 +22,5 @@ VIA_ENABLE = yes
 # QMK_SETTINGS = no
 
 #* Features
-SRC += features/layer_lock.c
+# SRC += features/layer_lock.c
 SRC += features/caps_word.c
