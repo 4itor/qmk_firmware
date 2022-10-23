@@ -197,6 +197,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum combo_events {
     COMBO_ESC1,  //  U+I+O -> Esc
     COMBO_ESC2,  //  W+E+R -> Esc
+    COMBO_ESC3,  //  U+I -> Esc
+    COMBO_ESC4,  //  W+E -> Esc
     COMBO_CAPSW, //  F+J -> CapsWord
     // COMBO_LPRN,  //  R+T -> (
     // COMBO_RPRN,  //  Y+U -> )
@@ -210,6 +212,8 @@ uint16_t COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM combo_uio[]    = {KC_U, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_wer[]    = {KC_W, KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_ui[]     = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_we[]     = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_fj[]     = {SFT_F, SFT_J, COMBO_END};
 // const uint16_t PROGMEM combo_rt[]     = {KC_R, KC_T, COMBO_END};
 // const uint16_t PROGMEM combo_yu[]     = {KC_Y, KC_U, COMBO_END};
@@ -221,6 +225,8 @@ const uint16_t PROGMEM combo_fj[]     = {SFT_F, SFT_J, COMBO_END};
 combo_t key_combos[COMBO_LENGTH] = {
     [COMBO_ESC1]  = COMBO(combo_uio, KC_ESC),
     [COMBO_ESC2]  = COMBO(combo_wer, KC_ESC),
+    [COMBO_ESC3]  = COMBO(combo_ui, KC_ESC),
+    [COMBO_ESC4]  = COMBO(combo_we, KC_ESC),
     [COMBO_CAPSW] = COMBO_ACTION(combo_fj),
     // [COMBO_LPRN]  = COMBO(combo_rt, KC_LPRN),
     // [COMBO_RPRN]  = COMBO(combo_yu, KC_RPRN),
