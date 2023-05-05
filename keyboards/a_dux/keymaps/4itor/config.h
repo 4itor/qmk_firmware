@@ -11,7 +11,7 @@
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 // Configure the global tapping term (default: 200ms)
-#define TAPPING_TERM 220
+#define TAPPING_TERM 200
 #define TAPPING_TERM_PINKY 350
 #define TAPPING_TERM_PER_KEY
 
